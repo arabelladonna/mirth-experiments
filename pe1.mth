@@ -1,0 +1,17 @@
+# a solution for Project Euler problem 1 in Mirth
+
+quad def-static-buffer(pe1i)
+quad def-static-buffer(pe1sum)
+
+def(pe1!, -- +IO,
+    while(pe1i @ 1000 <,
+        pe1i @ 3 % 0 = pe1i @ 5 % 0 = | if(
+            pe1sum @ pe1i @ + pe1sum !,
+            id
+        )
+        pe1i @ 1+ pe1i !
+    )
+    pe1sum @ int-print-ln!
+    )
+
+"pe1.c" output-c99(pe1!)
